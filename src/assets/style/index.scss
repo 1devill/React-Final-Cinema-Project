@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,700,900&display=swap');
+
+$primary-color: #141A46;
+$secondary-color: #876ED7;
+$attention-color: #A60000;
+$success-color: #00CC00;
+$primary-text-shadow: 0px 0 0.2px $primary-color;
+$primary-fz: 16px;
+$huge-fz: 26px;
+$big-fz: 23px;
+$medium-fz: 21px;
+$small-fz: 19px;
+$x-small-fz: 17px;
+$xx-small-fz: 14px;
+
+
+body {
+  margin: 0;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Exo 2', sans-serif;
+}
+
+html {
+  font-size: $x-small-fz;
+}
+
+aside.ant-layout-sider {
+  background-color: rgb(16, 21, 56);
+  color: #fff;
+}
+
+header.ant-layout-header {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0;
+}
+
+main.ant-layout-content {
+  margin: 0;
+  padding: $big-fz;
+  background-color: #fff;
+  min-height: 280px;
+}
+
+footer.ant-layout-footer {
+  margin: 0;
+  background-color: #141A46;
+  color: #fff;
+  font-size: $x-small-fz;
+}
+
+.ant-menu.ant-menu-dark li.ant-menu-item-selected {
+  background-color: $secondary-color;
+}
+
+.ant-menu-dark .ant-menu-item span {
+  color: #fff;
+  font-size: $x-small-fz;
+}
+
+.layout .trigger {
+  font-size: $x-small-fz;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.layout .trigger:hover {
+  color: $secondary-color;
+}
+
+.layout .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 1);
+  margin: 16px;
+}
+
+.header-logo {
+ padding: 0 10px;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+iframe {
+  border: 1px solid $secondary-color;
+}
+
+.layout a.logo {
+  background-color: $secondary-color;
+  height: auto;
+  color: #fff;
+  padding: 7px;
+  text-align: center;
+  margin-bottom: 10px;
+  display: block;
+  cursor: pointer;
+  font-size: $xx-small-fz;
+  transition: all 0.44s;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.layout a.logo:hover {
+  font-size: $xx-small-fz;
+  background-color: $success-color;
+}
+
+nav {
+    a {
+      display: block;
+      color: #fff;
+      font-size: $xx-small-fz;
+      text-align: center;
+      width: 100%;
+      padding: 20px;
+
+      &.active {
+        background-color: $secondary-color;
+      }
+    }
+}
+
+.filter-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+
+  & > * {
+    padding: 0 10px;
+  }
+
+  .title {
+    font-size: $x-small-fz;
+    color: $primary-color;
+  }
+
+  div {
+    display: flex;
+    width: 100%;
+  }
+
+  div > input, div > .ant-select {
+    font-size: $xx-small-fz;
+    color: $primary-color;
+    max-width: 400px;
+    width: 100%;
+    padding: 0 5px;
+
+    &:focus {
+      border: 1px solid $secondary-color;
+    }
+
+    .ant-select-selection {
+      width: 100%;
+
+      &:focus {
+        border: 1px solid $secondary-color;
+      }
+    }
+  }
+
+}
+
+.ant-spin.ant-spin-spinning {
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+}
+
+.movie-card .movie-image {
+  height: 400px;
+}
+
+.movie-card {
+  display: flex;
+  flex-wrap: wrap;
+  
+  & > * {
+    flex-basis: 20%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.movie-card .movie-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: $medium-fz;
+  color: $primary-color;
+  margin-top: 15px;
+  transition: all 0.44s;
+  text-shadow: $primary-text-shadow;
+
+  &:hover {
+    color: $success-color;
+  }
+}
+
+.btn-container {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  position: relative;
+  color: $primary-color;
+  width: 100%;
+  height: auto;
+  padding: 10px 10px;
+  display: flex;
+  cursor: pointer;
+  span {
+    transition: all 0.3s;
+    transform: scale(1, 1);
+  }
+}
+
+.btn:hover {
+  color: $success-color;
+}
+
+.btn::before, .btn::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.btn-primary::before, .btn-primary::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+	height: 100%;
+  bottom: 0;
+	left: 0;
+	z-index: 1;
+  transition: all 0.3s;
+  border: 1.5px solid $primary-color;
+}
+
+.btn-primary:hover::after {
+  animation-name: rotatecw;
+  animation-duration: 2s;
+}
+
+.btn-primary:hover::before {
+  animation-name: rotateccw; 
+  animation-duration: 3s;
+  
+}
+.btn-primary:hover::after, .btn-primary:hover::before {
+  width: 40px;
+  transform: translate(-50%, 0);
+  border: 1px solid $success-color;
+  
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotatecw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotateccw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+.movie-info {
+  padding: 15px;
+
+  .movie-title {
+    color: $primary-color;
+    font-size: $huge-fz;
+    text-align: center;
+    text-shadow: $primary-text-shadow;
+    background-color: $secondary-color;
+    box-shadow: 4px 1px 9px 0 #000;
+  }
+
+  .movie-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 -15px;
+
+    & > div {
+      font-size: $medium-fz;
+      padding: 5px 15px;
+      flex-basis: 70%;
+      background-color: $primary-color;
+      background-clip: content-box;
+      color: #fff;
+
+      &:last-child > * {
+        padding: 5px 15px;
+      }
+
+      & > div {
+        
+        & > .subtitle {
+          color: $secondary-color;
+          font-weight: bold;
+          font-style: italic;
+        }
+      }
+
+      & > .actors-block, & > .genre-block, & > .country-block, 
+      & > .language-block, & > .age-block, & > .description-block,
+      & > .trailer-block {
+        display: flex;
+        flex-wrap: wrap;
+
+        & > .subtitle {
+          flex-basis: 23%;
+          margin: 0;
+        }
+
+        & > p {
+          flex: 1 1 77%;
+          margin: 0;
+        }
+      }
+
+      & > .btn-container {
+        margin-top: 15px;
+      }
+    }
+
+    & > div:first-child {
+      flex-basis: 30%;
+      background-color: initial;
+    }
+  }
+}
+
+.schedule {
+  padding: 40px 20px;
+
+  h2 {
+    color: $primary-color;
+    border-bottom: 1.5px solid $primary-color;
+  }
+
+  .movie-session {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px -7px;
+
+    & > div {
+
+      padding: 0 7px;
+       
+      &.movie-info {
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
+        color: $primary-color;
+
+        & > div {
+
+          &:first-child {
+            width: 35%;
+          }
+
+          &:last-child {
+            width: 65%;
+          }
+
+          .btn-container {
+            margin-top: 10px;
+          }
+
+          .title-block > h3 {
+            text-align: center;
+            color: $primary-color;
+            margin-top: 10px;
+          }
+        }
+      }
+
+      &:last-child {
+        width: 65%;
+        color: $primary-color;
+
+        .session-info {
+          font-size: $medium-fz;
+        }
+      }
+    }
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  background-color: rgba(16, 21, 56 , 0.3);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-content {
+    width: 80%;
+    background-color: #fff;
+    border: 1px solid $secondary-color;
+    border-radius: 7px;
+    padding: 7px;
+    text-align: center;
+    color: $primary-color;
+    position: relative;
+
+    .session-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 7px;
+      color: #fff;
+
+      div {
+        background-color: $attention-color;
+        border-radius: 2px;
+      }
+
+      div:first-child {
+        background-color: $success-color;
+      }
+    }
+
+    h4 {
+      font-size: $small-fz;
+      background-color: $secondary-color;
+      color: #fff;
+    }
+  }
+}
+
+.places {
+  .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: $xx-small-fz;
+  }
+
+  .row-legend {
+    width: 10%;
+    margin: 5px 0;
+    background-color: yellow;
+    background-clip: content-box;
+    border-radius: 2px;
+  }
+
+  .place {
+    width: 8.5%;
+    border: 1px solid $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-clip: content-box;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &.booked {
+      background-color: $attention-color;
+      color: #fff;
+      cursor: initial;
+    }
+  }
+}
+
+.btn-close {
+  position: absolute;
+  font-size: $medium-fz;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.btn-buy {
+  width: 50%;
+}
+
+.chosen-seats {
+  color: #fff;
+  font-size: $small-fz;
+  background-color: $success-color;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+.form-buy {
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    text-align: left;
+  }
+
+  .input-block {
+    width: 50%;
+    padding: 5px;
+  }
+
+  .btn-buy {
+    margin-top: 10px;
+  }
+}
+
+.success-message {
+  color: $primary-color;
+  padding: 5px;
+
+  h3 {
+    font-size: $medium-fz;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: $x-small-fz;
+    
+  }
+}
+
+
+// Media queries ----->
+
+@media (max-width: 1200px) {
+
+  .movie-card {
+
+    & > * {
+      flex-basis: 25%;
+    }
+
+    .movie-title {
+      font-size: $x-small-fz;
+    }
+  }
+
+  .movie-info {
+    
+    .movie-wrapper {
+
+      & > div {
+        font-size: $xx-small-fz;
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .movie-card {
+
+    & > * {
+      flex-basis: 33.33%;
+    }
+  }
+
+  .movie-info {
+
+    .movie-wrapper {
+      margin: 0 -5px;
+  
+      & > div {
+        padding: 5px;
+  
+        &:last-child > * {
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .movie-card {
+
+    & > * {
+      flex-basis: 50%;
+    }
+
+    .movie-title {
+      font-size: $xx-small-fz;
+    }
+  }
+
+  .movie-info {
+    padding: 10px;
+  
+    .movie-title {
+      font-size: $medium-fz;
+    }
+
+    .movie-wrapper {
+
+      & > div {
+
+        & > .actors-block, & > .genre-block, & > .country-block, 
+        & > .language-block, & > .age-block, & > .description-block,
+        & > .trailer-block {
+
+          & > .subtitle {
+            flex-basis: 100%;
+          }
+
+          & > p {
+            flex: 1 1 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .filter-wrapper {
+    width: 100%;
+  }
+
+  .schedule {
+    .movie-session {
+      flex-wrap: wrap;
+  
+      & > div {
+         
+        &.movie-info {
+          width: 100%;
+  
+          & > div {
+  
+            &:first-child {
+              width: 100%;
+            }
+  
+            &:last-child {
+              width: 100%;
+            }
+  
+            .btn-container {
+              margin-top: 10px;
+              margin-bottom: 10px;
+            }
+          }
+        }
+  
+        &:last-child {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .movie-card {
+
+    & > * {
+      flex-basis: 100%;
+    }
+  }
+
+  .movie-info {
+    padding: 10px;
+  
+    .movie-title {
+      font-size: $x-small-fz;
+    }
+
+    .movie-wrapper {
+  
+      & > div {
+        flex-basis: 100%;
+      }
+
+      & > div:first-child {
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  .filter-wrapper {
+    flex-direction: column;
+  
+    .title {
+      font-size: $xx-small-fz;
+    }
+    
+    div {
+      flex-direction: column;
+
+      & > input {
+        margin-top: 10px;
+      }
+
+      & > div.ant-select {
+        padding: 0;
+      }
+    }
+  }
+
+  .places {
+    .row {
+      width: 100%;
+      
+    }
+  
+    .row-legend {
+      width: 100%;
+    }
+  
+    .place {
+      width: 10%;
+    }
+  }
+}
