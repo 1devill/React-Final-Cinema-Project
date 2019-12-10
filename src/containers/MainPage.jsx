@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Spin, Icon } from "antd";
 import { MovieCard, Filter } from "../components";
 
-const MainPage = ({ movies, genres, isLoading }) => {
+const MainPage = ({ movies, genres }) => {
   const [filteredMovies, setFilteredMovies] = useState([]);
-
-  if (isLoading) {
-    return <Spin indicator={<Icon type="sync" style={{ fontSize: 35 }} spin />}/>
-  }
 
   return (
     <React.Fragment>
-        <Filter movies={movies} genres={genres} setFilteredMovies={setFilteredMovies} />
+      <Filter
+        movies={movies}
+        genres={genres}
+        setFilteredMovies={setFilteredMovies}
+      />
       <div className={`card movie-card`}>
         {filteredMovies.length
           ? filteredMovies.map(item => (
@@ -26,8 +25,7 @@ const MainPage = ({ movies, genres, isLoading }) => {
 
 const mapStateToProps = state => ({
   movies: state.data.movies,
-  genres: state.data.genres,
-  isLoading: state.loading.isLoading
+  genres: state.data.genres
 });
 
 export const MainPageContainer = connect(mapStateToProps)(MainPage);

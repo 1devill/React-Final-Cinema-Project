@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,700,900&display=swap');
 
 $primary-color: #141A46;
+$primary-color-darken: rgb(16, 21, 56);
+$primary-color-light: #fff;
 $secondary-color: #876ED7;
+$third-color: rgb(248, 0, 95);
 $attention-color: #A60000;
 $success-color: #00CC00;
+
+$padding-big-all: 20px;
+$padding-big-top-bottom: 20px 0;
+$padding-big-left-right: 0 20px;
+$padding-medium-all: 10px;
+$padding-medium-top-bottom: 10px 0;
+$padding-medium-left-right: 0 10px;
+$padding-small-all: 5px;
+$padding-small-top-bottom: 5px 0;
+$padding-small-left-right: 0 5px;
+
 $primary-text-shadow: 0px 0 0.2px $primary-color;
+
 $primary-fz: 16px;
 $huge-fz: 26px;
 $big-fz: 23px;
@@ -35,33 +50,36 @@ code {
 }
 
 html {
-  font-size: $x-small-fz;
+  font-size: $primary-fz;
 }
 
 aside.ant-layout-sider {
-  background-color: rgb(16, 21, 56);
-  color: #fff;
+  background-color: $primary-color-darken;
+  color: $primary-color-light;
 }
 
 header.ant-layout-header {
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: $primary-color-light;
   padding: 0;
 }
 
 main.ant-layout-content {
   margin: 0;
-  padding: $big-fz;
-  background-color: #fff;
-  min-height: 280px;
+  padding: 30px 20px 100px;
+  background-color: $primary-color-light;
 }
 
 footer.ant-layout-footer {
   margin: 0;
-  background-color: #141A46;
-  color: #fff;
-  font-size: $x-small-fz;
+  background-color: $primary-color;
+  color: $primary-color-light;
+  font-size: $primary-fz;
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  width: 100%;
 }
 
 .ant-menu.ant-menu-dark li.ant-menu-item-selected {
@@ -69,14 +87,13 @@ footer.ant-layout-footer {
 }
 
 .ant-menu-dark .ant-menu-item span {
-  color: #fff;
-  font-size: $x-small-fz;
+  color: $primary-color-light;
+  font-size: $primary-fz;
 }
 
 .layout .trigger {
-  font-size: $x-small-fz;
-  line-height: 64px;
-  padding: 0 24px;
+  font-size: $primary-fz;
+  padding: $padding-big-all;
   cursor: pointer;
   transition: color 0.3s;
 }
@@ -86,13 +103,12 @@ footer.ant-layout-footer {
 }
 
 .layout .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 1);
+  background: $primary-color-light;
   margin: 16px;
 }
 
 .header-logo {
- padding: 0 10px;
+ padding: $padding-medium-left-right;
 }
 
 img {
@@ -108,8 +124,8 @@ iframe {
 .layout a.logo {
   background-color: $secondary-color;
   height: auto;
-  color: #fff;
-  padding: 7px;
+  color: $primary-color-light;
+  padding: $padding-small-all;
   text-align: center;
   margin-bottom: 10px;
   display: block;
@@ -122,17 +138,17 @@ iframe {
 
 .layout a.logo:hover {
   font-size: $xx-small-fz;
-  background-color: $success-color;
+  background-color: $third-color;
 }
 
 nav {
     a {
       display: block;
-      color: #fff;
+      color: $primary-color-light;
       font-size: $xx-small-fz;
       text-align: center;
       width: 100%;
-      padding: 20px;
+      padding: $padding-big-all;
 
       &.active {
         background-color: $secondary-color;
@@ -146,12 +162,13 @@ nav {
   width: 60%;
 
   & > * {
-    padding: 0 10px;
+    padding: $padding-medium-left-right;
   }
 
   .title {
     font-size: $x-small-fz;
     color: $primary-color;
+    border-left: 2px solid $primary-color;
   }
 
   div {
@@ -164,7 +181,7 @@ nav {
     color: $primary-color;
     max-width: 400px;
     width: 100%;
-    padding: 0 5px;
+    padding: $padding-small-left-right;
 
     &:focus {
       border: 1px solid $secondary-color;
@@ -198,7 +215,7 @@ nav {
   
   & > * {
     flex-basis: 20%;
-    padding: 15px;
+    padding: $padding-medium-all;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -215,7 +232,7 @@ nav {
   text-shadow: $primary-text-shadow;
 
   &:hover {
-    color: $success-color;
+    color: $secondary-color;
   }
 }
 
@@ -232,7 +249,7 @@ nav {
   color: $primary-color;
   width: 100%;
   height: auto;
-  padding: 10px 10px;
+  padding: $padding-medium-all;
   display: flex;
   cursor: pointer;
   span {
@@ -242,18 +259,7 @@ nav {
 }
 
 .btn:hover {
-  color: $success-color;
-}
-
-.btn::before, .btn::after {
-  content: '';
-  position: absolute;
-  transition: all 0.3s;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  color: $secondary-color;
 }
 
 .btn-primary::before, .btn-primary::after {
@@ -281,7 +287,7 @@ nav {
 .btn-primary:hover::after, .btn-primary:hover::before {
   width: 40px;
   transform: translate(-50%, 0);
-  border: 1px solid $success-color;
+  border: 1px solid $secondary-color;
   
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -298,7 +304,7 @@ nav {
 }
 
 .movie-info {
-  padding: 15px;
+  padding: $padding-medium-all;
 
   .movie-title {
     color: $primary-color;
@@ -306,7 +312,7 @@ nav {
     text-align: center;
     text-shadow: $primary-text-shadow;
     background-color: $secondary-color;
-    box-shadow: 4px 1px 9px 0 #000;
+    box-shadow: 4px 1px 9px 0 $primary-color;
   }
 
   .movie-wrapper {
@@ -321,7 +327,7 @@ nav {
       flex-basis: 70%;
       background-color: $primary-color;
       background-clip: content-box;
-      color: #fff;
+      color: $primary-color-light;
 
       &:last-child > * {
         padding: 5px 15px;
@@ -376,11 +382,11 @@ nav {
   .movie-session {
     display: flex;
     justify-content: space-between;
-    margin: 20px -7px;
+    margin: 20px -5px;
 
     & > div {
 
-      padding: 0 7px;
+      padding: $padding-small-left-right;
        
       &.movie-info {
         width: 35%;
@@ -435,10 +441,10 @@ nav {
 
   .modal-content {
     width: 80%;
-    background-color: #fff;
+    background-color: $primary-color-light;
     border: 1px solid $secondary-color;
     border-radius: 7px;
-    padding: 7px;
+    padding: $padding-medium-all;
     text-align: center;
     color: $primary-color;
     position: relative;
@@ -450,7 +456,7 @@ nav {
       color: #fff;
 
       div {
-        background-color: $attention-color;
+        background-color: $third-color;
         border-radius: 2px;
       }
 
@@ -462,41 +468,53 @@ nav {
     h4 {
       font-size: $small-fz;
       background-color: $secondary-color;
-      color: #fff;
+      color: $primary-color-light;
     }
   }
 }
 
 .places {
+  width: 100%;
+
   .row {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: center;
     font-size: $xx-small-fz;
+    width: 100%;
   }
 
   .row-legend {
     width: 10%;
-    margin: 5px 0;
-    background-color: yellow;
-    background-clip: content-box;
+    padding: 2px;
+    background-color: $secondary-color;
+    border: 1px solid $primary-color;
     border-radius: 2px;
+    color: $primary-color-light;
+    margin-bottom: 5px;
   }
 
   .place {
-    width: 8.5%;
     border: 1px solid $primary-color;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-clip: content-box;
     border-radius: 2px;
     cursor: pointer;
+    padding: 2px;
+    margin-bottom: 5px;
+    flex-grow: 1;
+    margin: 2px;
 
     &.booked {
       background-color: $attention-color;
-      color: #fff;
+      color: $primary-color-light;
       cursor: initial;
+    }
+
+    span {
+      padding: 5px;
+      display: block;
     }
   }
 }
@@ -504,7 +522,7 @@ nav {
 .btn-close {
   position: absolute;
   font-size: $medium-fz;
-  top: 5px;
+  top: 7px;
   right: 15px;
   cursor: pointer;
 }
@@ -514,9 +532,9 @@ nav {
 }
 
 .chosen-seats {
-  color: #fff;
+  color: $primary-color-light;
   font-size: $small-fz;
-  background-color: $success-color;
+  background-color: $third-color;
   margin-top: 5px;
   border-radius: 4px;
 }
@@ -531,7 +549,7 @@ nav {
 
   .input-block {
     width: 50%;
-    padding: 5px;
+    padding: $padding-small-all;
   }
 
   .btn-buy {
@@ -541,7 +559,7 @@ nav {
 
 .success-message {
   color: $primary-color;
-  padding: 5px;
+  padding: $padding-small-all;
 
   h3 {
     font-size: $medium-fz;
@@ -549,7 +567,7 @@ nav {
   }
 
   p {
-    font-size: $x-small-fz;
+    font-size: $primary-fz;
     
   }
 }
@@ -595,10 +613,10 @@ nav {
       margin: 0 -5px;
   
       & > div {
-        padding: 5px;
+        padding: $padding-small-all;
   
         &:last-child > * {
-          padding: 5px;
+          padding: $padding-small-all;
         }
       }
     }
@@ -619,7 +637,7 @@ nav {
   }
 
   .movie-info {
-    padding: 10px;
+    padding: $padding-medium-all;
   
     .movie-title {
       font-size: $medium-fz;
@@ -692,7 +710,7 @@ nav {
   }
 
   .movie-info {
-    padding: 10px;
+    padding: $padding-medium-all;
   
     .movie-title {
       font-size: $x-small-fz;
@@ -733,7 +751,7 @@ nav {
   .places {
     .row {
       width: 100%;
-      
+      justify-content: flex-start;
     }
   
     .row-legend {
@@ -741,7 +759,10 @@ nav {
     }
   
     .place {
-      width: 10%;
     }
+  }
+
+  footer.ant-layout-footer {
+    position: initial;
   }
 }

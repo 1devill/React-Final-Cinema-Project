@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Icon, Spin } from "antd";
 
 import { getSessions } from "../actions";
 import { SessionsBlock } from "../components";
@@ -12,30 +11,23 @@ class Schedule extends React.Component {
   }
 
   getSessions = () => {
-    const {movies, sessions, rooms} = this.props;
+    const { movies, sessions, rooms } = this.props;
 
-    const sessionArr = movies.length && sessions.length && rooms.length ? sessions.map(item => {
-        return item.map(elem => ({
-          ...elem,
-          room: rooms.find(room => room._id === elem.room).name,
-          movie: movies.find(movie => movie._id === elem.movie)
-        }));
-      }) : [];
+    const sessionArr =
+      movies.length && sessions.length && rooms.length
+        ? sessions.map(item => {
+            return item.map(elem => ({
+              ...elem,
+              room: rooms.find(room => room._id === elem.room).name,
+              movie: movies.find(movie => movie._id === elem.movie)
+            }));
+          })
+        : [];
 
-    return sessionArr.map(item => {
-        return item.filter(elem => elem.movie);
-    });
-  }
+    return sessionArr.map(item => item.filter(elem => elem.movie));
+  };
 
   render() {
-    const { isLoading } = this.props;
-
-    if (isLoading) {
-      return (
-        <Spin indicator={<Icon type="sync" style={{ fontSize: 35 }} spin />} />
-      );
-    }
-
     return (
       <div className="schedule">
         {this.getSessions().map((item, i) => (
@@ -51,7 +43,6 @@ class Schedule extends React.Component {
 
 const mapStateToProps = state => ({
   sessions: state.data.sessions,
-  isLoading: state.loading.isLoading,
   movies: state.data.movies,
   rooms: state.data.rooms
 });

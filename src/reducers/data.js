@@ -63,7 +63,6 @@ export const data = (state = initialValues, action) => {
       };
 
     case SET_ROOMS:
-
       return {
         ...state,
         rooms: action.payload

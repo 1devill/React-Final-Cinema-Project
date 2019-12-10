@@ -28,18 +28,22 @@ export class App extends Component {
           </Link>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
-              <Icon type="home" theme='twoTone' />
+              <Icon type="home" theme="twoTone" />
               <span>Main</span>
-              <NavLink to="/">Profile</NavLink>
+              <NavLink exact to="/">
+                Main
+              </NavLink>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="profile" theme="twoTone" />
               <span>Profile</span>
             </Menu.Item>
             <Menu.Item key="3">
-              <Icon type="calendar" theme='twoTone' />
+              <Icon type="calendar" theme="twoTone" />
               <span>Schedule</span>
-              <NavLink to="/schedule">$ Buy</NavLink>
+              <NavLink exact to="/schedule">
+                Schedule
+              </NavLink>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -50,10 +54,10 @@ export class App extends Component {
               type={this.state.collapsed ? "menu-unfold" : "menu-fold"}
               onClick={this.toggle}
             />
-            <h2 className='header-logo'>Filmz.Inc</h2>
+            <h2 className="header-logo">Filmz.Inc</h2>
           </Header>
           <MainContainer />
-          <Footer>Made by Daniel</Footer>
+          <Footer>Made by Daniel in 2020</Footer>
         </Layout>
       </Layout>
     );

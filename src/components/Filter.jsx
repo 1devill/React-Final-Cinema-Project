@@ -19,12 +19,12 @@ export const Filter = ({ movies, genres, setFilteredMovies }) => {
       const checkTitleFilter = item.title
         .toLowerCase()
         .includes(valueInput.toLowerCase());
-
-      if (hasAllFilters && checkSelectFilter && checkTitleFilter) {
-        acc.push(item);
-      } else if (hasTitleFilter && checkTitleFilter) {
-        acc.push(item);
-      } else if (hasSelectFilter && checkSelectFilter) {
+      const isApplyAllFilters =
+        hasAllFilters && checkSelectFilter && checkTitleFilter;
+      const isApplyTitleFilter = hasTitleFilter && checkTitleFilter;
+      const isApplySelectFilter = hasSelectFilter && checkSelectFilter;
+      
+      if (isApplyAllFilters || isApplyTitleFilter || isApplySelectFilter) {
         acc.push(item);
       }
 

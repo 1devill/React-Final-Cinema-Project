@@ -24,7 +24,9 @@ export const MovieSession = ({ session }) => {
           <SessionInfo room={session.room} date={session.date} />
         </div>
       </div>
-      {showModal && <ModalBuyTicket session={session} handleCloseModal={toggleShowModel} />}
+      {showModal && (
+        <ModalBuyTicket session={session} handleCloseModal={toggleShowModel} />
+      )}
     </React.Fragment>
   );
 };
